@@ -64,7 +64,7 @@ window.DCI_OVERVIEW = (() => {
 
       <section id="overview-6"><h2>6. Connect network and host evidence</h2>
       <p>The network view helps explain who communicated with whom, when and over which visible protocols. The host view helps explain which accounts, processes and local changes were involved. Public Army reporting describes separate host-hunt and network-monitoring cells.${cite(3)}</p>
-      <p>Here, <strong>NCM</strong> refers to the network-side role discussed in this course and <strong>HCM</strong> to the host-side role. Their formal titles and task boundaries should be checked against the actual course and Defence procedures.</p>
+      <p>In this guide, a <strong>Network Analyst</strong> examines network traffic and related records, while a <strong>Host Analyst</strong> examines evidence from individual computers and servers, such as event logs and processes. These are descriptive role labels; one person may perform both kinds of analysis.</p>
       ${evidence('en')}
       <p>A <strong>Security Information and Event Management system (SIEM)</strong> can help search and connect collected records. Match time zones, asset identity and the relevant period; an IP address can be reassigned. The diagram shows an analysis relationship, not a requirement that every packet be stored in the SIEM.</p>
       <p>In a possible toolset, Snort provides network detection leads, Arkime supports examination of retained packets, Velociraptor supports host investigation, Hayabusa supports Windows event-log analysis and Splunk supports searching collected records. These are examples, not mandated DCI tools or proof of a particular Defence kit. Capabilities depend on deployment and configuration.</p>
@@ -75,7 +75,7 @@ window.DCI_OVERVIEW = (() => {
       <p>Suppose an ordinary workstation, <code>192.0.2.25</code>, sends a TCP connection-start packet, a <strong>SYN</strong>, to <code>198.51.100.10:5985</code>. The destination is a critical server in this fictional environment. The colon separates the IP address from the port number.</p>
       <p>TCP port 5985 is the default HTTP listener port for WinRM, a Windows remote-management service.${cite(7)} That association makes it worth investigating if the workstation is not an approved administration source. It does not establish which application actually used the port.</p>
       <div class="evidence-level"><h3>Observed fact</h3><p>A packet with these addresses and destination port was captured at the stated time.</p><h3>Supported hypothesis</h3><p>The workstation may be attempting remote-management access. Legitimate management activity is an alternative explanation.</p><h3>Still unproven</h3><p>A completed connection, successful authentication, command execution, stolen credentials and compromise.</p></div>
-      <p>The NCM checks the response path, capture coverage and relevant traffic. The HCM checks the associated host and authentication evidence. Both compare the activity with authorised work. Missing replies could reflect collection gaps; encrypted traffic may hide application content.</p></section>
+      <p>The Network Analyst checks the response path, capture coverage and relevant traffic. The Host Analyst checks the associated host and authentication evidence. Both compare the activity with authorised work. Missing replies could reflect collection gaps; encrypted traffic may hide application content.</p></section>
 
       <section id="overview-8"><h2>8. What a useful hunt leaves behind</h2>
       <p>A useful result is more than a list of suspicious addresses. Record the question, examined assets and period, evidence locations, findings, alternative explanations and remaining gaps. Give each recommended action an owner and a way to verify completion.</p>
@@ -122,7 +122,7 @@ window.DCI_OVERVIEW = (() => {
 
       <section id="overview-6"><h2>6. 네트워크와 호스트 증거 연결</h2>
       <p>네트워크에서는 누가 누구와 언제, 어떤 관측 가능한 방식으로 통신했는지 살펴봅니다. 호스트, 즉 PC·서버 같은 개별 시스템에서는 어떤 계정과 프로세스, 로컬 변경이 관련되었는지 조사해요. 미 육군 공개 사례에도 호스트 헌트와 네트워크 감시 셀이 등장합니다.${cite(3)}</p>
-      <p>이 과정에서는 앞서 논의한 <strong>NCM을 네트워크 측 역할</strong>, <strong>HCM을 호스트 측 역할</strong>로 연결해 설명합니다. 공식 직책명과 업무 경계는 실제 과정과 Defence 절차에서 확인해야 합니다.</p>
+      <p>이 사이트에서는 통신과 관련 기록을 살펴보는 사람을 <strong>네트워크 분석 담당자(Network Analyst)</strong>, 개별 PC·서버의 이벤트 로그와 프로세스 같은 증거를 살펴보는 사람을 <strong>호스트 분석 담당자(Host Analyst)</strong>라고 부릅니다. 분석 업무를 설명하는 일반적인 표현이며, 한 사람이 두 업무를 함께 맡을 수도 있어요.</p>
       ${evidence('ko')}
       <p><strong>SIEM(Security Information and Event Management, 보안 정보·이벤트 관리 시스템)</strong>은 수집한 기록을 검색하고 연결하는 데 도움을 줍니다. 시간대와 자산, 해당 시점의 주소 할당을 맞춰야 해요. IP 주소는 다른 장비에 재할당될 수 있습니다. 그림은 분석 관계를 보여주는 것이며, 모든 패킷을 SIEM에 저장해야 한다는 뜻은 아닙니다.</p>
       <p>도구 구성의 예로는 Snort의 네트워크 탐지 단서, Arkime의 보관 패킷 확인, Velociraptor의 호스트 조사, Hayabusa의 Windows 이벤트 로그 분석, Splunk의 수집 기록 검색을 연결할 수 있습니다. 이는 예시이며 DCI의 필수 제품 목록이나 특정 Defence 키트의 공식 구성을 뜻하지 않습니다. 실제 능력은 배치와 설정에 따라 달라져요.</p>
@@ -133,7 +133,7 @@ window.DCI_OVERVIEW = (() => {
       <p>일반 직원 PC인 <code>192.0.2.25</code>가 이 가상 환경의 핵심 서버 <code>198.51.100.10:5985</code>로 TCP 연결 시작 패킷인 <strong>SYN</strong>을 보냈다고 해볼게요. 콜론은 IP 주소와 통신 포트 번호를 구분하는 기호입니다.</p>
       <p>TCP 5985는 Windows 원격 관리 서비스인 WinRM의 기본 HTTP 포트입니다.${cite(7)} 이 PC가 승인된 관리 장비가 아니라면 조사할 가치가 있어요. 하지만 포트 번호만으로 실제 사용 프로그램을 확정할 수는 없습니다.</p>
       <div class="evidence-level"><h3>직접 관측한 사실</h3><p>해당 시각에 이 주소와 목적지 포트를 가진 패킷을 수집했습니다.</p><h3>그 사실이 지지하는 가설</h3><p>직원 PC가 원격 관리 접근을 시도했을 수 있습니다. 정상 관리 작업이라는 다른 설명도 검토해야 합니다.</p><h3>아직 확인되지 않은 결론</h3><p>연결 성립, 인증 성공, 명령 실행, 계정 탈취와 시스템 침해 여부입니다.</p></div>
-      <p>NCM은 응답 경로와 수집 범위, 관련 통신을 확인합니다. HCM은 관련 호스트와 인증 증거를 확인하고, 함께 승인된 작업 여부를 대조해요. 응답이 없는 것은 수집 공백 때문일 수 있고, 암호화된 통신에서는 애플리케이션 내용을 읽지 못할 수 있습니다.</p></section>
+      <p>네트워크 분석 담당자는 응답 경로와 수집 범위, 관련 통신을 확인합니다. 호스트 분석 담당자는 관련 호스트와 인증 증거를 확인하고, 함께 승인된 작업 여부를 대조해요. 응답이 없는 것은 수집 공백 때문일 수 있고, 암호화된 통신에서는 애플리케이션 내용을 읽지 못할 수 있습니다.</p></section>
 
       <section id="overview-8"><h2>8. 헌팅이 남겨야 하는 결과</h2>
       <p>좋은 결과는 의심 주소 목록만으로 끝나지 않습니다. 조사 질문, 확인한 자산과 기간, 증거 위치, 발견 사항, 다른 가능한 설명과 남은 공백을 기록해요. 권고한 조치에는 담당자와 완료 여부를 확인할 방법을 연결합니다.</p>
