@@ -1,0 +1,22 @@
+{
+  "file": "snort-alerts-splunk.png",
+  "sourceUrl": "https://snort-org-site.s3.amazonaws.com/production/document_files/files/000/012/147/original/Snort_3.1.8.0_on_Ubuntu_18_and_20.pdf",
+  "sourceListing": "https://snort.org/documents",
+  "title": "Snort 3.1.18.0 on Ubuntu 18 & 20: Configuring a Full NIDS & SIEM",
+  "author": "Noah Dietrich",
+  "publicationDate": "2021-12-30",
+  "page": 20,
+  "pdfZeroBasedPage": 19,
+  "embeddedImage": "Im5.png",
+  "extraction": "Original embedded PNG bytes extracted with pypdf; no cropping, redrawing or pixel changes",
+  "version": "Guide targets Snort 3.1.18.0 and Ubuntu 18/20. Exact Splunk screenshot version is not stated.",
+  "license": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "licensePage": 3,
+  "checked": "2026-11-06",
+  "captionEn": "Historical Splunk Search & Reporting screenshot showing a query for Snort 3 JSON alerts. Noah Dietrich, 2021 guide, p.20; CC BY-NC-SA 4.0. This is a SIEM search screen, not a native Snort GUI. No returned alert events are visible in this image.",
+  "captionKo": "Snort 3 JSON 경보를 검색하는 과거 Splunk Search & Reporting 화면입니다. Noah Dietrich의 2021년 가이드 20쪽, CC BY-NC-SA 4.0. Snort 자체 GUI가 아닌 SIEM 검색 화면이며, 이 이미지에는 검색 결과 경보가 보이지 않습니다.",
+  "sha256": "980296c06d3af964fe8b167f7ebc40804aca51fd7a813c463c9d5e0a8d541492",
+  "width": 939,
+  "height": 162
+}

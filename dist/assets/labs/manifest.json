@@ -1,0 +1,18 @@
+[
+  {
+    "file": "dci-winrm.pcap",
+    "packets": 3,
+    "bytes": 234,
+    "sha256": "567b1027d6d828aa2c7d908df91e6e4a49462b6a4f5456daf1b276f60a49eb38",
+    "time": "2026-11-01 12:00:00 UTC",
+    "provenance": "Synthetic teaching packets generated here; not a real capture or executed tool result."
+  },
+  {
+    "file": "dci-http-dns.pcap",
+    "packets": 12,
+    "bytes": 1058,
+    "sha256": "9f0dc4ae9f0052487b51762c0e1b37e5cc586a2d2eaeaa7c0452aa185f681b55",
+    "time": "2026-11-01 12:00:00 UTC",
+    "provenance": "Synthetic teaching packets generated here; not a real capture or executed tool result."
+  }
+]

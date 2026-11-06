@@ -9,6 +9,8 @@
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
   <script defer src="./overview.js"></script>
+  <script defer src="./chapters-data.js"></script>
+  <script defer src="./chapter-view.js"></script>
   <script defer src="./app.js"></script>
 </head>
 <body>
@@ -35,10 +37,14 @@
         <a href="#home" data-page="home"><svg class="icon"><use href="#icon-home"/></svg><span data-i18n="home">Home</span><span class="nav-dot" aria-hidden="true"></span></a>
         <a href="#overview" data-page="overview"><svg class="icon"><use href="#icon-book"/></svg><span data-i18n="overview">DCI overview</span><span class="nav-dot" aria-hidden="true"></span></a>
         <a href="#lessons" data-page="lessons"><svg class="icon"><use href="#icon-book"/></svg><span data-i18n="lessons">Lessons</span><span class="nav-dot" aria-hidden="true"></span></a>
+        <span class="nav-section" data-i18n="toolNav">NETWORK TOOLS</span>
+        <a href="#snort" data-page="snort"><svg class="icon"><use href="#icon-book"/></svg><span>Snort</span><span class="nav-dot" aria-hidden="true"></span></a>
+        <a href="#zeek" data-page="zeek"><svg class="icon"><use href="#icon-book"/></svg><span>Zeek</span><span class="nav-dot" aria-hidden="true"></span></a>
+        <a href="#arkime" data-page="arkime"><svg class="icon"><use href="#icon-book"/></svg><span>Arkime</span><span class="nav-dot" aria-hidden="true"></span></a>
         <a href="#resources" data-page="resources"><svg class="icon"><use href="#icon-folder"/></svg><span data-i18n="resources">Resources</span><span class="nav-dot" aria-hidden="true"></span></a>
       </nav>
       <div class="sidebar-bottom">
-        <div class="version-line"><span class="small-square" aria-hidden="true"></span><span data-i18n="shellStatus">Foundations</span><span class="mono">v0.2</span></div>
+        <div class="version-line"><span class="small-square" aria-hidden="true"></span><span data-i18n="shellStatus">Foundations</span><span class="mono">v0.3</span></div>
         <a class="repo-link" href="https://github.com/dfirwiz/dci-master" target="_blank" rel="noopener noreferrer"><span class="repo-caption" data-i18n="repository">SOURCE REPOSITORY</span><span>dfirwiz / dci-master <svg class="icon"><use href="#icon-external"/></svg></span></a>
       </div>
     </aside>

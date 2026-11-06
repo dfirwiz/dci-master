@@ -12,6 +12,9 @@
   const menu=document.getElementById('menu-button');
   const sidebar=document.getElementById('sidebar');
   const backdrop=document.getElementById('sidebar-backdrop');
+  Object.assign(copy.en,{toolNav:'NETWORK TOOLS',status:'Learning notes',lessonsDescription:'DCI foundations and practical network-tool guides.',toolLibrary:'Network tools',homeDescription:'Learn the DCI foundations, then follow the Snort, Zeek and Arkime guides.',resourcesDescription:'Public references and synthetic practice files for the learning guides.'});
+  Object.assign(copy.ko,{toolNav:'네트워크 도구',status:'학습 노트',lessonsDescription:'DCI 기초와 네트워크 도구의 상세 사용법을 배웁니다.',toolLibrary:'네트워크 도구',homeDescription:'DCI 기초에서 시작해 Snort·Zeek·Arkime 상세 강의로 이어갑니다.',resourcesDescription:'강의에서 참고한 공개 자료와 자체 제작한 실습 파일입니다.'});
+  for(const [id,c] of Object.entries(window.DCI_CHAPTERS))for(const l of ['en','ko'])Object.assign(copy[l],{[id]:id==='snort'?'Snort':id==='zeek'?'Zeek':'Arkime',[id+'Title']:c.title[l],[id+'Description']:c.subtitle[l],[id+'Eyebrow']:l==='en'?'NETWORK TOOLS / '+id.toUpperCase():'네트워크 도구 / '+id.toUpperCase()});
   function closeMenu(){sidebar.classList.remove('is-open');backdrop.hidden=true;sidebar.inert=window.innerWidth<=700;menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label',copy[lang].menuOpen);menu.querySelector('use').setAttribute('href','#icon-menu');}
   function translate(){
     document.documentElement.lang=lang;
@@ -25,13 +28,17 @@
   function lessonCard(){return `<section class="panel lesson-list" aria-label="${copy[lang].lessons}"><a href="#overview" class="lesson-entry"><span class="lesson-index">00</span><span class="lesson-entry-body"><span class="lesson-label" data-i18n="foundations"></span><h2 data-i18n="overview"></h2><span class="lesson-summary" data-i18n="overviewSummary"></span></span><svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a></section>`;}
   function render(){
     const requested=location.hash.slice(1);
-    const page=['home','overview','lessons','resources'].includes(requested)?requested:'home';
+    const page=['home','overview','lessons','resources','snort','zeek','arkime'].includes(requested)?requested:'home';
     document.body.dataset.page=page;
     document.querySelectorAll('[data-page]').forEach(el=>{if(el.dataset.page===page)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
-    if(page==='home')view.replaceChildren(document.getElementById('home-template').content.cloneNode(true));
+    if(page==='home'){
+      view.replaceChildren(document.getElementById('home-template').content.cloneNode(true));
+      view.insertAdjacentHTML('beforeend',`<section class="panel home-tool-library"><div class="panel-heading"><h2 data-i18n="toolLibrary"></h2></div>${window.DCI_TOOL_VIEW.cards(lang)}</section>`);
+    }
     else if(page==='overview')view.innerHTML=window.DCI_OVERVIEW.render(lang);
-    else if(page==='lessons')view.innerHTML=lessonCard();
-    else view.innerHTML=`<section class="panel resources-list"><div class="panel-heading"><h2 data-i18n="publicSources"></h2></div><div class="resources-body"><p data-i18n="reviewDate"></p>${window.DCI_OVERVIEW.sources(lang,true)}</div></section>`;
+    else if(window.DCI_CHAPTERS[page])view.innerHTML=window.DCI_TOOL_VIEW.render(page,lang);
+    else if(page==='lessons')view.innerHTML=lessonCard()+`<section class="panel tool-lesson-list">${window.DCI_TOOL_VIEW.cards(lang)}</section>`;
+    else view.innerHTML=`<section class="panel resources-list"><div class="panel-heading"><h2 data-i18n="publicSources"></h2></div><div class="resources-body"><p data-i18n="reviewDate"></p>${window.DCI_OVERVIEW.sources(lang,true)}<h2 data-i18n="toolLibrary"></h2>${Object.entries(window.DCI_CHAPTERS).map(([id,c])=>`<h3><a href="#${id}">${c.title[lang]}</a></h3><ol class="source-list">${c.sources.map(r=>`<li><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.title}</a></li>`).join('')}</ol>`).join('')}<h2>${lang==='ko'?'실습 파일':'Practice files'}</h2><p><a href="./assets/labs/dci-winrm.pcap" download>dci-winrm.pcap</a> · <a href="./assets/labs/dci-http-dns.pcap" download>dci-http-dns.pcap</a> · <a href="./assets/labs/README.txt" download>README</a></p></div></section>`;
     translate();
     document.getElementById('page-title').textContent=copy[lang][page+'Title'];
     document.getElementById('page-description').textContent=copy[lang][page+'Description'];
