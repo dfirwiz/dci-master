@@ -48,3 +48,4 @@ Design update of 10 November 2026: the site uses self-hosted fonts under `dist/a
 
 Cheat sheet (10 November 2026): `dist/cheatsheet.js` adds a quick-reference page with copy-ready Snort 2 commands for applying and testing rules, setting `HOME_NET` and `EXTERNAL_NET` (including tested results for common settings and errors), rule syntax, alert fields and a no-alert checklist. Commands were run with Snort 2.9.20 except the service commands and the Snort 3 snippet, which are marked as not run.
 
+
