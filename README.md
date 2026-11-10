@@ -14,6 +14,9 @@ Public-source DCI overview and detailed Snort, Zeek and Arkime guides in English
 - Static HTML, CSS and JavaScript, with no framework or package installation.
 - Five authentic tool/ecosystem screenshots, with source, historical version and execution limits stated in captions. See [ASSETS.md](ASSETS.md) for attribution.
 - Two synthetic training PCAPs, a Snort teaching rule, a manifest with SHA-256 hashes and instructions. They use documentation addresses and `training.example`.
+- Fundamentals page (English and Korean): TCP flags, the handshake and FIN/RST behaviour, port-state replies, connection states, scan and flood patterns, Wireshark filters, Snort 2 flag rules, essential ports, SMB named pipes with UTF-16LE content and RPC UUIDs, and snort.conf port variables.
+- Snort chapter section 15: applying a Snort 2.9 rule (`local.rules`, `snort -T`, PCAP tests, live tests, service restart and a no-alert checklist).
+- Three further synthetic PCAPs (`dci-smb-samr.pcap`, `dci-smb-samr-badsum.pcap`, `dci-tcp-flags.pcap`) with matching Snort 2 rule files.
 
 ## Files
 
@@ -23,7 +26,7 @@ Public-source DCI overview and detailed Snort, Zeek and Arkime guides in English
 
 Serve `dist/` using a static HTTP server, for example `python -m http.server 8000 --directory dist`, then open `http://localhost:8000`.
 
-The overview lives in `dist/overview.js`; the three tool guides live in `dist/chapters-data.js` and render through `dist/chapter-view.js`. GitHub Pages publication is automated as described below. The separate ChatGPT Sites deployment still uses the Sites workflow.
+The overview lives in `dist/overview.js`; the Fundamentals page lives in `dist/fundamentals.js`; the three tool guides live in `dist/chapters-data.js` and render through `dist/chapter-view.js`. GitHub Pages publication is automated as described below. The separate ChatGPT Sites deployment still uses the Sites workflow.
 
 ## GitHub Pages
 
@@ -38,3 +41,5 @@ The existing ChatGPT Sites URL is a separate deployment. Updating one host does 
 ## Verification and limits
 
 Verified all three guides in both languages, navigation and language persistence, mobile layouts at six viewport widths, SVG text bounds, screenshot loading, downloadable fixtures and six A4 print renders. Independently checked the synthetic PCAP packet lengths and checksums. Snort, Zeek and Arkime engines were not available on the authoring computer: commands and expected outcomes are teaching examples, not reported engine executions. The Zeek Playground screenshot shows the editor before a verified successful run. Snort's screenshot shows Splunk searching Snort alerts, not a native Snort graphical interface.
+
+Update of 10 November 2026: the Fundamentals page and Snort section 15 were checked on Linux with Snort 2.9.20 (Ubuntu 24.04 package), tcpdump and TShark 4.2.2. Their tcpdump, Wireshark-filter and Snort outputs are copied from real runs against the three new synthetic PCAPs and against `dci-winrm.pcap` (two alerts, as the Snort 3 exercise predicts). Service restarts, `ping` and `tcpreplay` were not executed, and the netstat listing is illustrative; the pages say so where they appear.

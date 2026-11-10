@@ -1,0 +1,5 @@
+alert tcp any any -> $HOME_NET any (msg:"DCI TCP NULL scan"; flow:stateless; flags:0; classtype:attempted-recon; sid:1000010; rev:1;)
+alert tcp any any -> $HOME_NET any (msg:"DCI TCP Xmas scan"; flow:stateless; flags:FPU,CE; classtype:attempted-recon; sid:1000011; rev:1;)
+alert tcp any any -> $HOME_NET any (msg:"DCI TCP SYN+FIN illegal flags"; flow:stateless; flags:SF,CE; classtype:attempted-recon; sid:1000012; rev:1;)
+alert tcp any any -> $HOME_NET any (msg:"DCI TCP FIN without ACK"; flow:stateless; flags:F,CE; classtype:attempted-recon; sid:1000013; rev:1;)
+alert tcp any any -> $HOME_NET any (msg:"DCI many SYN from one source"; flow:stateless; flags:S,CE; detection_filter:track by_src, count 1, seconds 10; classtype:attempted-recon; sid:1000014; rev:1;)

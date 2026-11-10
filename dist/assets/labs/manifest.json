@@ -14,5 +14,29 @@
     "sha256": "9f0dc4ae9f0052487b51762c0e1b37e5cc586a2d2eaeaa7c0452aa185f681b55",
     "time": "2026-11-01 12:00:00 UTC",
     "provenance": "Synthetic teaching packets generated here; not a real capture or executed tool result."
+  },
+  {
+    "file": "dci-smb-samr.pcap",
+    "packets": 8,
+    "bytes": 872,
+    "sha256": "ba362e40d0ed7e94ed4831ab147db8853e740c881ac19cb93ae5548b24a6b77e",
+    "time": "2026-11-01 12:00:00 UTC",
+    "provenance": "Synthetic teaching packets (RFC 5737 addresses); not a real capture. Synthetic SMB2 session: 192.0.2.25 opens the \\samr named pipe on 198.51.100.10:445 (8 packets). Verified with Snort 2.9.20: sid 1000003 matches packet 4."
+  },
+  {
+    "file": "dci-smb-samr-badsum.pcap",
+    "packets": 8,
+    "bytes": 872,
+    "sha256": "a327d81ad890e6762e3c75cb982ac8ef99123285e57ab66ffeef3a9cdf1c5b69",
+    "time": "2026-11-01 12:00:00 UTC",
+    "provenance": "Synthetic teaching packets (RFC 5737 addresses); not a real capture. Same session with a deliberately wrong TCP checksum on packet 4. Verified with Snort 2.9.20: 0 alerts by default, 1 alert with -k none."
+  },
+  {
+    "file": "dci-tcp-flags.pcap",
+    "packets": 19,
+    "bytes": 1412,
+    "sha256": "b5214d849146795c3a42be3332b6b3d29a4c34c537d4745c488699eccc1b441d",
+    "time": "2026-11-01 12:00:00 UTC",
+    "provenance": "Synthetic teaching packets (RFC 5737 addresses); not a real capture. Synthetic TCP flag examples (19 packets): handshake, data, FIN close, RST from a closed port, half-open SYN scan, NULL, FIN, Xmas and SYN+FIN. Verified with tcpdump, TShark 4.2.2 and Snort 2.9.20."
   }
 ]
