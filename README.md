@@ -23,7 +23,17 @@ Public-source DCI overview and detailed Snort, Zeek and Arkime guides in English
 
 Serve `dist/` using a static HTTP server, for example `python -m http.server 8000 --directory dist`, then open `http://localhost:8000`.
 
-The overview lives in `dist/overview.js`; the three tool guides live in `dist/chapters-data.js` and render through `dist/chapter-view.js`. Hosting publication uses the Sites workflow; pushing to GitHub alone does not automatically deploy this site.
+The overview lives in `dist/overview.js`; the three tool guides live in `dist/chapters-data.js` and render through `dist/chapter-view.js`. GitHub Pages publication is automated as described below. The separate ChatGPT Sites deployment still uses the Sites workflow.
+
+## GitHub Pages
+
+Public URL: https://dfirwiz.github.io/dci-master/
+
+The workflow in [`.github/workflows/pages.yml`](.github/workflows/pages.yml) uploads only `dist/` to GitHub Pages. It runs when `main` receives changes under `dist/` or to the workflow itself, and can also be started manually from Actions → Deploy DCI Master to GitHub Pages → Run workflow.
+
+Repository Settings → Pages → Build and deployment → Source must be set to **GitHub Actions**. No separate build, framework installation, duplicated `docs/` directory or personal access token is needed.
+
+The existing ChatGPT Sites URL is a separate deployment. Updating one host does not automatically update the other host; GitHub Pages follows the repository workflow, while ChatGPT Sites uses its own publishing process.
 
 ## Verification and limits
 
