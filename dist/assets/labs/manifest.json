@@ -38,5 +38,61 @@
     "sha256": "b5214d849146795c3a42be3332b6b3d29a4c34c537d4745c488699eccc1b441d",
     "time": "2026-11-01 12:00:00 UTC",
     "provenance": "Synthetic teaching packets (RFC 5737 addresses); not a real capture. Synthetic TCP flag examples (19 packets): handshake, data, FIN close, RST from a closed port, half-open SYN scan, NULL, FIN, Xmas and SYN+FIN. Verified with tcpdump, TShark 4.2.2 and Snort 2.9.20."
+  },
+  {
+    "file": "t01-smb-benign.pcap",
+    "packets": 61,
+    "bytes": 9824,
+    "sha256": "8eecb7303f0984beae0700a32b552e18f6ec351ee5ce6107f1560f11fcbcb4d2",
+    "time": "2026-11-03 01:00 UTC",
+    "provenance": "Synthetic teaching packets with fictional addresses (10.50.0.0/24, RFC 5737 external); not a real capture. Normal SMB: 10.50.0.31 reads a file from \\\\FS01\\Shared; jump host 10.50.0.5 reads from \\\\WS031\\C$. Expected: 0 alerts with t01-smb-local.rules."
+  },
+  {
+    "file": "t01-smb-psexec.pcap",
+    "packets": 86,
+    "bytes": 16916,
+    "sha256": "0b9c4e36f22bde23417efc9b8df7c8de5a9d13676d27e5c59a0ead588a4915c9",
+    "time": "2026-11-03 01:00 UTC",
+    "provenance": "Synthetic teaching packets with fictional addresses (10.50.0.0/24, RFC 5737 external); not a real capture. PsExec-style move 10.50.0.66 -> 10.50.0.31: ADMIN$ tree connect, PSEXESVC.exe create/write, SVCCTL CreateServiceW/StartServiceW. Snort 2.9.20: 7 alerts."
+  },
+  {
+    "file": "t01-smb-recon.pcap",
+    "packets": 114,
+    "bytes": 15133,
+    "sha256": "269cecd914d9fb4bacc0b767fe972abb67be7af3569478aef381d114b88cfa0d",
+    "time": "2026-11-03 01:00 UTC",
+    "provenance": "Synthetic teaching packets with fictional addresses (10.50.0.0/24, RFC 5737 external); not a real capture. 10.50.0.66 -> DC 10.50.0.10 over IPC$: SAMR user enumeration, LSARPC, SRVSVC NetrShareEnum. Snort 2.9.20: 2 alerts."
+  },
+  {
+    "file": "t01-smb-remote-exec.pcap",
+    "packets": 98,
+    "bytes": 13271,
+    "sha256": "5f6865d35fb9790f11ba0746e2ad06c20a11fe4758fb714f11164db23514c04f",
+    "time": "2026-11-03 01:00 UTC",
+    "provenance": "Synthetic teaching packets with fictional addresses (10.50.0.0/24, RFC 5737 external); not a real capture. 10.50.0.66 -> 10.50.0.31: ATSVC NetrJobAdd, ITaskSchedulerService SchRpcRegisterTask, WINREG Run key. Snort 2.9.20: 3 alerts."
+  },
+  {
+    "file": "t01-smb-bruteforce.pcap",
+    "packets": 168,
+    "bytes": 18438,
+    "sha256": "77f3201580618047136c565d640fc0b05b692dfdb7f030ef39b2cce53d2b036b",
+    "time": "2026-11-03 01:00 UTC",
+    "provenance": "Synthetic teaching packets with fictional addresses (10.50.0.0/24, RFC 5737 external); not a real capture. 12 SMB2 session setups from 10.50.0.66 to 10.50.0.10 answered with STATUS_LOGON_FAILURE. Snort 2.9.20: 7 alerts (sid 1000140)."
+  },
+  {
+    "file": "t01-smbv1.pcap",
+    "packets": 10,
+    "bytes": 942,
+    "sha256": "3f7be8ac9abb2910c1e9edc87970b316517eed18fbb1f60c02204486b72cfe24",
+    "time": "2026-11-03 01:00 UTC",
+    "provenance": "Synthetic teaching packets with fictional addresses (10.50.0.0/24, RFC 5737 external); not a real capture. SMBv1 negotiate 10.50.0.66 -> 10.50.0.20. Snort 2.9.20: 1 alert (sid 1000101)."
+  },
+  {
+    "file": "t02-attacks.pcap",
+    "packets": 1946,
+    "bytes": 1142106,
+    "sha256": "55b0634448fb1d576050e019a8fbde93675b25079506bee388e70230786ed5a8",
+    "time": "2026-11-04 02:00 UTC",
+    "provenance": "Synthetic teaching packets with fictional addresses (10.50.0.0/24, RFC 5737 external); not a real capture. Tutorial 02 hunting PCAP, 2026-11-04 02:00-03:00 UTC: port scan, web attacks and web shell, FTP guessing, HTTP Basic cleartext, HTTP beacon, reverse shell on 4444, SMB PsExec, DNS TXT tunnelling, 900 KB upload. Processed with Zeek 8.2.2."
   }
 ]

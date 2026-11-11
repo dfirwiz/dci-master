@@ -18,6 +18,9 @@
   Object.assign(copy.ko,{fundamentals:'기초지식',fundamentalsTitle:'기초지식: TCP 플래그와 필수 포트',fundamentalsDescription:'TCP 플래그, 연결 상태, 주요 포트와 SMB 네임드 파이프를 검증된 패킷 예제로 배웁니다.',fundamentalsEyebrow:'기초 과정 / 기초지식'});
   Object.assign(copy.en,{cheatsheet:'Cheat sheet',cheatsheetTitle:'Cheat sheet: apply and test Snort 2 rules',cheatsheetDescription:'Copy-ready commands for applying and testing rules, HOME_NET and EXTERNAL_NET, rule syntax and common errors.',cheatsheetEyebrow:'Reference'});
   Object.assign(copy.ko,{cheatsheet:'치트시트',cheatsheetTitle:'치트시트: Snort 2 규칙 적용과 시험',cheatsheetDescription:'규칙 적용·시험 명령, HOME_NET·EXTERNAL_NET 설정, 규칙 문법, 자주 나는 에러를 한 곳에 모았습니다.',cheatsheetEyebrow:'참조'});
+  Object.assign(copy.en,{tutorials:'Tutorials',tutorialsTitle:'Tutorials',tutorialsDescription:'Hands-on walkthroughs with practice PCAPs and tested commands.',tutorialsEyebrow:'LEARNING / TUTORIALS'});
+  Object.assign(copy.ko,{tutorials:'튜토리얼',tutorialsTitle:'튜토리얼',tutorialsDescription:'실습 PCAP과 실제로 시험한 명령으로 따라 하는 단계별 실습입니다.',tutorialsEyebrow:'학습 / 튜토리얼'});
+  for(const t of window.DCI_TUTORIALS.tutorials)for(const l of ['en','ko'])Object.assign(copy[l],{[t.id]:t.title[l],[t.id+'Title']:(l==='en'?'Tutorial: ':'튜토리얼: ')+t.title[l],[t.id+'Description']:t.summary[l],[t.id+'Eyebrow']:l==='en'?'TUTORIALS / '+t.index:'튜토리얼 / '+t.index});
   Object.assign(copy.en,{copy:'Copy',copied:'Copied',printSection:'Print this section',printed:'Printed',printHint:'The print button prints the whole page. To print one section, use the printer icon beside its heading.'});
   Object.assign(copy.ko,{copy:'복사',copied:'복사됨',printSection:'이 절만 인쇄',printed:'인쇄일',printHint:'상단 인쇄 버튼은 페이지 전체를 인쇄합니다. 한 절만 인쇄하려면 제목 옆의 프린터 아이콘을 누르세요.'});
   for(const [id,c] of Object.entries(window.DCI_CHAPTERS))for(const l of ['en','ko'])Object.assign(copy[l],{[id]:id==='snort'?'Snort':id==='zeek'?'Zeek':'Arkime',[id+'Title']:c.title[l],[id+'Description']:c.subtitle[l],[id+'Eyebrow']:l==='en'?'NETWORK TOOLS / '+id.toUpperCase():'네트워크 도구 / '+id.toUpperCase()});
@@ -82,20 +85,22 @@
   window.addEventListener('scroll',()=>{if(tocTicking)return;tocTicking=true;requestAnimationFrame(()=>{updateToc();tocTicking=false;});},{passive:true});
   function render(){
     const requested=location.hash.slice(1);
-    const tutIds=[];
-    const page=['home','overview','fundamentals','cheatsheet','lessons','resources','snort','zeek','arkime',...tutIds].includes(requested)?requested:'home';
+    const tutIds=window.DCI_TUTORIALS.tutorials.map(t=>t.id);
+    const page=['home','overview','fundamentals','cheatsheet','tutorials','lessons','resources','snort','zeek','arkime',...tutIds].includes(requested)?requested:'home';
     document.body.dataset.page=page;
-    const navPage=page;
+    const navPage=tutIds.includes(page)?'tutorials':page;
     document.querySelectorAll('[data-page]').forEach(el=>{if(el.dataset.page===navPage)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
     if(page==='home'){
       view.replaceChildren(document.getElementById('home-template').content.cloneNode(true));
-      view.insertAdjacentHTML('beforeend',`<section class="panel home-tool-library"><div class="panel-heading"><h2 data-i18n="toolLibrary"></h2></div>${window.DCI_FUNDAMENTALS.card(lang)}${window.DCI_CHEATSHEET.card(lang)}${window.DCI_TOOL_VIEW.cards(lang)}</section>`);
+      view.insertAdjacentHTML('beforeend',`<section class="panel home-tool-library"><div class="panel-heading"><h2 data-i18n="toolLibrary"></h2></div>${window.DCI_FUNDAMENTALS.card(lang)}${window.DCI_TUTORIALS.cards(lang)}${window.DCI_CHEATSHEET.card(lang)}${window.DCI_TOOL_VIEW.cards(lang)}</section>`);
     }
     else if(page==='overview')view.innerHTML=window.DCI_OVERVIEW.render(lang);
     else if(page==='fundamentals')view.innerHTML=window.DCI_FUNDAMENTALS.render(lang);
     else if(page==='cheatsheet')view.innerHTML=window.DCI_CHEATSHEET.render(lang);
+    else if(page==='tutorials')view.innerHTML=window.DCI_TUTORIALS.list(lang);
+    else if(tutIds.includes(page))view.innerHTML=window.DCI_TUTORIALS.render(page,lang);
     else if(window.DCI_CHAPTERS[page])view.innerHTML=window.DCI_TOOL_VIEW.render(page,lang);
-    else if(page==='lessons')view.innerHTML=lessonCard()+`<section class="panel tool-lesson-list">${window.DCI_FUNDAMENTALS.card(lang)}${window.DCI_CHEATSHEET.card(lang)}${window.DCI_TOOL_VIEW.cards(lang)}</section>`;
+    else if(page==='lessons')view.innerHTML=lessonCard()+`<section class="panel tool-lesson-list">${window.DCI_FUNDAMENTALS.card(lang)}${window.DCI_TUTORIALS.cards(lang)}${window.DCI_CHEATSHEET.card(lang)}${window.DCI_TOOL_VIEW.cards(lang)}</section>`;
     else view.innerHTML=`<section class="panel resources-list"><div class="panel-heading"><h2 data-i18n="publicSources"></h2></div><div class="resources-body"><p data-i18n="reviewDate"></p>${window.DCI_OVERVIEW.sources(lang,true)}<h2 data-i18n="toolLibrary"></h2>${Object.entries(window.DCI_CHAPTERS).map(([id,c])=>`<h3><a href="#${id}">${c.title[lang]}</a></h3><ol class="source-list">${c.sources.map(r=>`<li><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.title}</a></li>`).join('')}</ol>`).join('')}<h3><a href="#fundamentals">${copy[lang].fundamentalsTitle}</a></h3><ol class="source-list">${window.DCI_FUNDAMENTALS.sources.map(r=>`<li><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.title}</a></li>`).join('')}</ol><h2>${lang==='ko'?'실습 파일':'Practice files'}</h2><p>${['dci-winrm.pcap','dci-http-dns.pcap','dci-smb-samr.pcap','dci-smb-samr-badsum.pcap','dci-tcp-flags.pcap','dci-local.rules','dci-snort2-local.rules','dci-tcp-flags.rules','README.txt','manifest.json'].map(f=>`<a href="./assets/labs/${f}" download>${f}</a>`).join(' · ')}</p></div></section>`;
     translate();
     document.getElementById('page-title').textContent=copy[lang][page+'Title'];
