@@ -2,7 +2,7 @@
 
 Bilingual DCI learning website for `dfirwiz/dci-master`.
 
-Public-source DCI overview and detailed Snort, Zeek and Arkime guides in English and Korean. The three tool guides cover 43 teaching sections with diagrams, tables, configuration walkthroughs, evidence interpretation, troubleshooting, capacity planning, review answers and primary-source references. Checked on 6 November 2026. These are public educational materials, not approved Defence baselines or procedures.
+Public-source DCI overview and detailed Snort, Zeek and Arkime guides in English and Korean. The three tool guides cover 43 teaching sections with diagrams, tables, configuration walkthroughs, evidence interpretation, troubleshooting, capacity planning, review answers and primary-source references. Checked on 6 November 2026. These are public educational materials, not approved organisational baselines or procedures.
 
 ## Included
 

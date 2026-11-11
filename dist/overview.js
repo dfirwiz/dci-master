@@ -41,7 +41,7 @@ window.DCI_OVERVIEW = (() => {
       <section id="overview-2"><h2>2. What DCI means here</h2>
       <p>In this learning space, <strong>DCI means Discovery and Counter Infiltration</strong>. A 2025 article by a DISA author, published in the U.S. Department of the Navy’s CHIPS publication, describes analytics supporting DCI and enterprise hunts for advanced persistent threats that had not previously been detected. It also identifies improved analytics as an important outcome.${cite(1)}</p>
       <p>Think of DCI as a mission-oriented defensive effort: understand the environment, investigate possible adversary presence, support authorised action and improve the defences. <strong>Assuming that a breach is possible is a working mindset, not a finding that a breach has occurred.</strong></p>
-      <p>Threat hunting is a closely related activity: analysts proactively search for threats that existing controls may have missed.${cite(4)} The DCI framing used here also connects that investigation to coordinated clearance, hardening support and assessment. Terminology and responsibilities can vary between organisations; this page does not establish the origin of the acronym or an official ADF definition.</p></section>
+      <p>Threat hunting is a closely related activity: analysts proactively search for threats that existing controls may have missed.${cite(4)} The DCI framing used here also connects that investigation to coordinated clearance, hardening support and assessment. Terminology and responsibilities can vary between organisations; this page does not establish the origin of the acronym or any official definition.</p></section>
 
       <section id="overview-3"><h2>3. DCI, SOC and incident response</h2>
       <p>A <strong>Security Operations Centre (SOC)</strong> provides ongoing security operations, including monitoring, investigation and detection development. A hunt asks a focused question even when an alert has not supplied the starting point. <strong>Incident response (IR)</strong> coordinates investigation, containment and recovery when an incident is suspected or confirmed.</p>
@@ -54,7 +54,7 @@ window.DCI_OVERVIEW = (() => {
       <p>A useful plan records the question to investigate, included assets, time window, required data, visibility gaps, investigation contacts and action authority. Collecting more data is not a substitute for knowing why it is needed. Historical “normal” activity may itself contain malicious activity, so validate the baseline with system owners.${cite(3)}</p></section>
 
       <section id="overview-5"><h2>5. A practical mission cycle</h2>
-      <p>Public CPT reporting describes Hunt, Clear, Enable hardening and Assess activities.${cite(2)} The diagram adds a planning step to make the learning sequence explicit. <strong>This is an educational synthesis, not a prescribed ADF procedure.</strong></p>
+      <p>Public CPT reporting describes Hunt, Clear, Enable hardening and Assess activities.${cite(2)} The diagram adds a planning step to make the learning sequence explicit. <strong>This is an educational synthesis, not a prescribed operational procedure.</strong></p>
       ${cycle('en')}
       <h3>Plan: choose the question and the boundaries</h3><p>Identify the mission, relevant assets, available evidence and permitted actions. Write a testable hypothesis: for example, an intruder may be using a workstation to reach a server through a remote-management service.</p>
       <h3>Hunt: test the hypothesis</h3><p>Search the relevant network and host evidence. Compare findings with legitimate administration and normal dependencies. A hunt may support the hypothesis, weaken it or remain inconclusive because the required evidence is missing.</p>
@@ -67,7 +67,7 @@ window.DCI_OVERVIEW = (() => {
       <p>In this guide, a <strong>Network Analyst</strong> examines network traffic and related records, while a <strong>Host Analyst</strong> examines evidence from individual computers and servers, such as event logs and processes. These are descriptive role labels; one person may perform both kinds of analysis.</p>
       ${evidence('en')}
       <p>A <strong>Security Information and Event Management system (SIEM)</strong> can help search and connect collected records. Match time zones, asset identity and the relevant period; an IP address can be reassigned. The diagram shows an analysis relationship, not a requirement that every packet be stored in the SIEM.</p>
-      <p>In a possible toolset, Snort provides network detection leads, Arkime supports examination of retained packets, Velociraptor supports host investigation, Hayabusa supports Windows event-log analysis and Splunk supports searching collected records. These are examples, not mandated DCI tools or proof of a particular Defence kit. Capabilities depend on deployment and configuration.</p>
+      <p>In a possible toolset, Snort provides network detection leads, Arkime supports examination of retained packets, Velociraptor supports host investigation, Hayabusa supports Windows event-log analysis and Splunk supports searching collected records. These are examples, not mandated DCI tools or proof of a particular organisation’s kit. Capabilities depend on deployment and configuration.</p>
       <p>MITRE ATT&amp;CK is a shared knowledge base for describing adversary tactics and techniques. Mapping a finding to ATT&amp;CK helps communicate the behaviour; it does not prove that an attack succeeded or that the necessary data was collected.${cite(6)}</p></section>
 
       <section id="overview-7"><h2>7. A small investigation example</h2>
@@ -88,7 +88,7 @@ window.DCI_OVERVIEW = (() => {
       <div class="review-item"><h3>3. Must the hunt team apply every hardening change itself?</h3><p><strong>Explanation:</strong> No. Identify the responsible operator and approval path. The team may recommend changes while the system owner implements them. Verify the effect afterwards.</p></div>
       <div class="review-item"><h3>4. What if a hunt finds nothing because the server logs are missing?</h3><p><strong>Explanation:</strong> Record an inconclusive result for questions requiring those logs. State what was checked, what remains unknown and which evidence would resolve it.</p></div></section>
 
-      <section id="overview-10" class="sources-section"><h2>10. Sources and scope</h2><p>This overview combines public sources with original teaching examples. It is not an ADF doctrine extract or a substitute for approved Defence procedures. Terminology, authority and task sequence must be confirmed for the actual mission.</p><p><strong>Sources checked: 5 November 2026.</strong> The 2017 and 2022 military reports describe particular teams and events; they are context, not evidence of current ADF organisation. NIST SP 800-61 Rev. 3 was published in 2025 and supersedes Rev. 2.</p>${sources('en')}</section>
+      <section id="overview-10" class="sources-section"><h2>10. Sources and scope</h2><p>This overview combines public sources with original teaching examples. It is not a doctrine extract or a substitute for approved organisational procedures. Terminology, authority and task sequence must be confirmed for the actual mission.</p><p><strong>Sources checked: 5 November 2026.</strong> The 2017 and 2022 military reports describe particular teams and events; they are context, not evidence of how any organisation is structured today. NIST SP 800-61 Rev. 3 was published in 2025 and supersedes Rev. 2.</p>${sources('en')}</section>
     `,
     ko:()=>`
       <section id="overview-1"><h2>1. 멀쩡해 보이는데 왜 조사할까요?</h2>
@@ -99,7 +99,7 @@ window.DCI_OVERVIEW = (() => {
       <section id="overview-2"><h2>2. 이 사이트에서 말하는 DCI</h2>
       <p>이 학습 공간에서는 <strong>DCI를 Discovery and Counter Infiltration</strong>이라는 의미로 사용합니다. 미 국방정보시스템국(DISA) 소속 필자가 작성한 2025년 미 해군부 CHIPS 기사는, 이전에 탐지되지 않은 지능형 지속 위협을 찾는 DCI와 엔터프라이즈 헌팅을 지원하는 분석 규칙을 설명합니다. 분석 규칙의 개선도 주요 성과로 제시합니다.${cite(1)}</p>
       <p>쉽게 말하면, 임무 환경을 이해하고 침입자의 존재를 조사하며, 승인된 조치와 방어 개선까지 연결하는 방어 활동으로 생각하면 됩니다. 여기서 <strong>“침입이 가능하다고 가정한다”는 조사 태도와 “침입이 확인되었다”는 결론은 다릅니다.</strong></p>
-      <p>이미 있는 보안 통제가 놓쳤을 수 있는 위협을 능동적으로 찾는 <strong>위협 헌팅(threat hunting)</strong>과 밀접한 관계가 있어요.${cite(4)} 이 사이트에서는 그 조사를 클리어, 하드닝 지원, 평가까지 연결해 설명합니다. 조직마다 용어와 책임이 다를 수 있으므로, 이 설명을 약어의 기원이나 ADF 공식 정의로 단정하지는 않습니다.</p></section>
+      <p>이미 있는 보안 통제가 놓쳤을 수 있는 위협을 능동적으로 찾는 <strong>위협 헌팅(threat hunting)</strong>과 밀접한 관계가 있어요.${cite(4)} 이 사이트에서는 그 조사를 클리어, 하드닝 지원, 평가까지 연결해 설명합니다. 조직마다 용어와 책임이 다를 수 있으므로, 이 설명을 약어의 기원이나 공식 정의로 단정하지는 않습니다.</p></section>
 
       <section id="overview-3"><h2>3. SOC·사고 대응과의 관계</h2>
       <p><strong>SOC(Security Operations Centre, 보안관제센터)</strong>는 지속적인 감시와 조사, 탐지 능력 개발 등을 수행합니다. 헌팅은 경보가 출발점을 제공하지 않더라도 특정 질문을 정해 조사하는 활동입니다. <strong>IR(Incident Response, 사고 대응)</strong>은 사고가 의심되거나 확인되었을 때 조사·확산 방지·복구를 조정합니다.</p>
@@ -112,7 +112,7 @@ window.DCI_OVERVIEW = (() => {
       <p>계획에는 조사 질문, 대상 자산, 시간 범위, 필요한 데이터, 관측 공백, 협조 담당자와 조치 권한을 기록합니다. 데이터를 많이 모으는 것만으로 목적이 분명해지는 것은 아닙니다. 과거에 관찰한 평소 활동 안에도 악성 활동이 섞여 있을 수 있으므로 시스템 소유자와 정상 기준을 확인해야 합니다.${cite(3)}</p></section>
 
       <section id="overview-5"><h2>5. 작전을 이해하는 기본 흐름</h2>
-      <p>공개된 CPT(Cyber Protection Team, 사이버 보호팀) 자료에는 Hunt, Clear, Enable hardening, Assess 활동이 등장합니다.${cite(2)} 아래 그림은 이해를 돕기 위해 앞에 계획을 붙인 흐름입니다. <strong>공개 자료를 종합한 학습용 구조이며, ADF의 정해진 작전 절차를 재현한 것은 아닙니다.</strong></p>
+      <p>공개된 CPT(Cyber Protection Team, 사이버 보호팀) 자료에는 Hunt, Clear, Enable hardening, Assess 활동이 등장합니다.${cite(2)} 아래 그림은 이해를 돕기 위해 앞에 계획을 붙인 흐름입니다. <strong>공개 자료를 종합한 학습용 구조이며, 정해진 작전 절차를 재현한 것은 아닙니다.</strong></p>
       ${cycle('ko')}
       <h3>계획: 무엇을 어디까지 조사할까요?</h3><p>임무와 중요 자산, 확보할 수 있는 증거, 허용된 조치를 정합니다. 예를 들어 “공격자가 직원 PC에서 원격 관리 기능으로 서버에 접근할 수 있다”처럼 증거로 확인할 수 있는 가설을 세워요.</p>
       <h3>헌트: 가설을 증거와 대조합니다</h3><p>관련 네트워크와 호스트 데이터를 확인하고 정상 관리 작업·업무 의존 관계와 비교합니다. 결과가 가설을 지지할 수도, 약화할 수도 있어요. 필요한 증거가 없어서 판단을 유보해야 할 수도 있습니다.</p>
@@ -125,7 +125,7 @@ window.DCI_OVERVIEW = (() => {
       <p>이 사이트에서는 통신과 관련 기록을 살펴보는 사람을 <strong>네트워크 분석 담당자(Network Analyst)</strong>, 개별 PC·서버의 이벤트 로그와 프로세스 같은 증거를 살펴보는 사람을 <strong>호스트 분석 담당자(Host Analyst)</strong>라고 부릅니다. 분석 업무를 설명하는 일반적인 표현이며, 한 사람이 두 업무를 함께 맡을 수도 있어요.</p>
       ${evidence('ko')}
       <p><strong>SIEM(Security Information and Event Management, 보안 정보·이벤트 관리 시스템)</strong>은 수집한 기록을 검색하고 연결하는 데 도움을 줍니다. 시간대와 자산, 해당 시점의 주소 할당을 맞춰야 해요. IP 주소는 다른 장비에 재할당될 수 있습니다. 그림은 분석 관계를 보여주는 것이며, 모든 패킷을 SIEM에 저장해야 한다는 뜻은 아닙니다.</p>
-      <p>도구 구성의 예로는 Snort의 네트워크 탐지 단서, Arkime의 보관 패킷 확인, Velociraptor의 호스트 조사, Hayabusa의 Windows 이벤트 로그 분석, Splunk의 수집 기록 검색을 연결할 수 있습니다. 이는 예시이며 DCI의 필수 제품 목록이나 특정 Defence 키트의 공식 구성을 뜻하지 않습니다. 실제 능력은 배치와 설정에 따라 달라져요.</p>
+      <p>도구 구성의 예로는 Snort의 네트워크 탐지 단서, Arkime의 보관 패킷 확인, Velociraptor의 호스트 조사, Hayabusa의 Windows 이벤트 로그 분석, Splunk의 수집 기록 검색을 연결할 수 있습니다. 이는 예시이며 DCI의 필수 제품 목록이나 특정 조직 키트의 공식 구성을 뜻하지 않습니다. 실제 능력은 배치와 설정에 따라 달라져요.</p>
       <p><strong>MITRE ATT&amp;CK</strong>는 공격자의 전술과 기법을 설명하는 공통 지식 체계입니다. 관측한 행위를 공통 언어로 설명하는 데 유용하지만, 기법에 연결했다고 공격 성공이 증명되거나 필요한 데이터가 자동 수집되는 것은 아닙니다.${cite(6)}</p></section>
 
       <section id="overview-7"><h2>7. 작은 조사 사례로 이해하기</h2>
@@ -146,7 +146,7 @@ window.DCI_OVERVIEW = (() => {
       <div class="review-item"><h3>3. 헌팅팀이 모든 하드닝 변경을 직접 해야 할까요?</h3><p><strong>해설:</strong> 담당 운영자와 승인 경로를 확인해야 합니다. 팀이 변경을 권고하고 시스템 소유자가 적용할 수 있어요. 적용 후 효과도 확인합니다.</p></div>
       <div class="review-item"><h3>4. 서버 로그가 없어서 아무것도 못 찾았다면 어떻게 기록할까요?</h3><p><strong>해설:</strong> 해당 로그가 필요한 질문은 판단을 유보합니다. 확인한 부분과 남은 의문, 이를 해소할 증거를 구체적으로 적어야 합니다.</p></div></section>
 
-      <section id="overview-10" class="sources-section"><h2>10. 출처와 적용 범위</h2><p>공개 자료와 자체 교육 예제를 종합한 개요입니다. ADF 교리의 발췌문이나 승인된 Defence 절차를 대신하는 자료가 아닙니다. 실제 임무의 용어·권한·작업 순서를 확인해야 합니다.</p><p><strong>출처 확인일: 2026년 11월 5일.</strong> 2017년과 2022년의 군 자료는 특정 팀과 당시 사례를 설명하며, 현재 ADF 편제를 증명하지 않습니다. NIST SP 800-61 Rev. 3은 2025년에 발행되어 Rev. 2를 대체했습니다.</p>${sources('ko')}</section>
+      <section id="overview-10" class="sources-section"><h2>10. 출처와 적용 범위</h2><p>공개 자료와 자체 교육 예제를 종합한 개요입니다. 교리의 발췌문이나 승인된 조직 절차를 대신하는 자료가 아닙니다. 실제 임무의 용어·권한·작업 순서를 확인해야 합니다.</p><p><strong>출처 확인일: 2026년 11월 5일.</strong> 2017년과 2022년의 군 자료는 특정 팀과 당시 사례를 설명하며, 현재 어떤 조직의 편제도 증명하지 않습니다. NIST SP 800-61 Rev. 3은 2025년에 발행되어 Rev. 2를 대체했습니다.</p>${sources('ko')}</section>
     `
   };
   function render(lang){

@@ -1,6 +1,6 @@
 # Screenshot attribution and training data
 
-The site distinguishes authentic screenshots from original diagrams and synthetic training traffic. Screenshots are not evidence of a local Defence deployment or successful local engine execution. Source and version notes appear beside each image in both languages.
+The site distinguishes authentic screenshots from original diagrams and synthetic training traffic. Screenshots are not evidence of an organisational deployment or successful local engine execution. Source and version notes appear beside each image in both languages.
 
 ## Snort alert search in Splunk
 
