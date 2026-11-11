@@ -26,7 +26,7 @@ Public-source DCI overview and detailed Snort, Zeek and Arkime guides in English
 
 Serve `dist/` using a static HTTP server, for example `python -m http.server 8000 --directory dist`, then open `http://localhost:8000`.
 
-The overview lives in `dist/overview.js`; the Fundamentals page lives in `dist/fundamentals.js`; the three tool guides live in `dist/chapters-data.js` and render through `dist/chapter-view.js`. GitHub Pages publication is automated as described below. The separate ChatGPT Sites deployment still uses the Sites workflow.
+The overview lives in `dist/overview.js`; the Fundamentals page lives in `dist/fundamentals.js`; lesson 00C, Common traffic flows (normal DNS, DHCP, WPAD, SSH, RDP, HTTP/S, SMB, LDAP, Kerberos and email, with 2024–2026 updates), lives in `dist/traffic-flows.js`; the three tool guides live in `dist/chapters-data.js` and render through `dist/chapter-view.js`. GitHub Pages publication is automated as described below. The separate ChatGPT Sites deployment still uses the Sites workflow.
 
 ## GitHub Pages
 

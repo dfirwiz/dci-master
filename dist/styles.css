@@ -242,6 +242,7 @@ html[lang="ko"] .article-table{font-size:14px;line-height:1.7}
 .arkime-architecture .diagram{max-width:390px;margin:auto}
 .evidence-figure .diagram{max-width:370px;margin:auto}
 .flag-sequence .diagram{max-width:400px;margin:auto}
+.traffic-sequence .diagram{max-width:560px;margin:auto}
 .example-label{font-size:14px!important;line-height:1.7;color:var(--amber-ink);background:var(--amber-soft);border-left:3px solid var(--amber);border-radius:0 8px 8px 0;padding:10px 14px}
 .evidence-level{border-left:3px solid var(--signal);padding:2px 0 2px 20px;margin:24px 0}
 .evidence-level h3{margin-top:12px}
