@@ -1,7 +1,7 @@
 /* Tutorials container. Each tutorial lives in its own file and registers itself on window:
    tutorial-snort-smb.js (T01) and tutorial-zeek-hunt.js (T02). All scenario data is fictional. */
 window.DCI_TUTORIALS = (() => {
-  const tutorials = [window.DCI_TUTORIAL_SNORT_SMB, window.DCI_TUTORIAL_ZEEK_HUNT].filter(Boolean);
+  const tutorials = [window.DCI_TUTORIAL_SNORT_SMB, window.DCI_TUTORIAL_ZEEK_HUNT, window.DCI_TUTORIAL_ZEEK_SPLUNK].filter(Boolean);
 
   const text = {
     en: {label: 'Tutorial · Hands-on', toc: 'In this tutorial', sources: 'Sources', back: 'All tutorials', listHeading: 'Tutorials', next: 'Cheat sheet'},
